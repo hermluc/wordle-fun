@@ -2,7 +2,7 @@
 // DEIN GEHEIMES LÖSUNGSWORT
 // =================================
 
-const LOESUNGSWORT = "KLEIN";
+const LOESUNGSWORT = "BLUME";
 
 // Hier kannst du die Nachricht ändern:
 const GEWONNEN = "Du hast es geschafft! ♡ Herzlichen Glückwunsch!";
@@ -24,7 +24,6 @@ let won = false;
 const board = document.getElementById("board");
 const keyboard = document.getElementById("keyboard");
 const message = document.getElementById("message");
-
 
 
 // =================================
@@ -213,5 +212,6 @@ document.addEventListener("keydown", event => {
 // =================================
 // SPIEL STARTEN
 // =================================
+
 drawBoard();
 drawKeyboard();

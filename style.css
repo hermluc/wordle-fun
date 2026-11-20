@@ -1,3 +1,4 @@
+```css
 * {
     box-sizing: border-box;
 }
@@ -5,6 +6,7 @@
 body {
     margin: 0;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,15 +18,15 @@ body {
     );
     font-family: Georgia, serif;
     color: #76515b;
+    padding: 15px;
 }
 
 .game-container {
-    width: 95%;
+    width: 100%;
     max-width: 480px;
-    min-height: 90vh;
-    padding: 35px 20px;
+    padding: 30px 18px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.75);
     border: 2px solid #d8a18f;
     border-radius: 22px;
     box-shadow: 0 10px 35px rgba(160, 100, 110, 0.15);
@@ -32,38 +34,38 @@ body {
 
 .decoration {
     color: #c58b79;
-    font-size: 30px;
+    font-size: 28px;
 }
 
 h1 {
     color: #b77d70;
-    letter-spacing: 10px;
-    font-size: 35px;
+    letter-spacing: 9px;
+    font-size: 34px;
     margin: 10px 0;
 }
 
 .subtitle {
     font-style: italic;
     color: #a77d7d;
+    font-size: 15px;
 }
 
 .divider {
     color: #c58b79;
     font-size: 25px;
-    margin: 20px;
+    margin: 15px;
 }
 
 .instructions {
     font-size: 14px;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .board {
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
     gap: 6px;
-    width: 290px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px;
     margin: 0 auto 25px;
 }
 
@@ -74,17 +76,16 @@ h1 {
 }
 
 .tile {
-    width: 100%;
     aspect-ratio: 1;
+    min-width: 0;
     border: 2px solid #d9b8ae;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    font-size: 25px;
+    font-size: clamp(19px, 6vw, 25px);
     font-weight: bold;
     color: #76515b;
-    text-transform: uppercase;
     background: #fffaf8;
 }
 
@@ -110,6 +111,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 7px;
+    width: 100%;
     max-width: 440px;
     margin: auto;
 }
@@ -121,8 +123,10 @@ h1 {
 }
 
 .key {
-    min-width: 28px;
-    height: 45px;
+    flex: 1;
+    min-width: 0;
+    max-width: 38px;
+    height: 48px;
     border: none;
     border-radius: 5px;
     background: #ead1d0;
@@ -130,11 +134,13 @@ h1 {
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
+    touch-action: manipulation;
 }
 
 .key.wide {
-    min-width: 52px;
-    font-size: 12px;
+    flex: 1.5;
+    max-width: 60px;
+    font-size: 11px;
 }
 
 .key.correct,
@@ -148,37 +154,55 @@ h1 {
     font-weight: bold;
     color: #a66f68;
     line-height: 1.5;
-}
-
-.restart {
-    background: #bd897b;
-    color: white;
-    border: none;
-    padding: 12px 22px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin: 10px;
+    font-size: 14px;
 }
 
 footer {
-    margin-top: 30px;
+    margin-top: 25px;
     color: #b58b86;
     font-size: 12px;
     font-style: italic;
 }
 
 @media (max-width: 380px) {
+    body {
+        padding: 8px;
+    }
+
     .game-container {
-        padding: 25px 10px;
+        padding: 22px 10px;
     }
 
     .key {
-        min-width: 24px;
-        height: 42px;
+        height: 43px;
         font-size: 12px;
     }
 
     .key.wide {
-        min-width: 43px;
+        font-size: 10px;
     }
 }
+
+@media (max-height: 650px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .game-container {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .divider {
+        margin: 8px;
+    }
+
+    .instructions {
+        margin-bottom: 12px;
+    }
+
+    footer {
+        margin-top: 15px;
+    }
+}
+```
