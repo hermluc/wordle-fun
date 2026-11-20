@@ -2,7 +2,7 @@
 // DEIN GEHEIMES LÖSUNGSWORT
 // =================================
 
-const LOESUNGSWORT = "BLUME";
+const LOESUNGSWORT = "ENZYM";
 
 // Hier kannst du die Nachricht ändern:
 const GEWONNEN = "Du hast es geschafft! ♡ Herzlichen Glückwunsch!";
@@ -20,6 +20,7 @@ let guesses = [];
 let currentGuess = "";
 let gameOver = false;
 let won = false;
+let wrongLetters = [];
 
 const board = document.getElementById("board");
 const keyboard = document.getElementById("keyboard");
@@ -78,7 +79,8 @@ function drawKeyboard() {
         }
 
         letters.split("").forEach(letter => {
-            addKey(letter, "", row);
+            const extraClass = wrongLetters.includes(letter) ? "wrong" : "";
+            addKey(letter, extraClass, row);
         });
 
         if (index === 2) {
@@ -170,6 +172,15 @@ function submitGuess() {
     }
 
     const colors = checkWord(currentGuess, LOESUNGSWORT);
+
+    // Falsche Buchstaben für die Tastatur speichern
+    for (let i = 0; i < WORTLAENGE; i++) {
+    if (colors[i] === "absent") {
+        if (!wrongLetters.includes(currentGuess[i])) {
+            wrongLetters.push(currentGuess[i]);
+        }
+    }
+}
 
     guesses.push({
         word: currentGuess,
